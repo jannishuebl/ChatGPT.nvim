@@ -48,4 +48,6 @@ end
 
 M.complete_code = module.complete_code
 
+M.change_code = module.change_code
+
 return M

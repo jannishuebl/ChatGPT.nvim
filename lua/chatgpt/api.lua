@@ -89,6 +89,7 @@ function Api.make_call(url, params, cb)
   end
   f:write(vim.fn.json_encode(params))
   f:close()
+  print("make_call")
   Api.job = job
     :new({
       command = "curl",
@@ -109,6 +110,7 @@ function Api.make_call(url, params, cb)
 end
 
 Api.handle_response = vim.schedule_wrap(function(response, exit_code, cb)
+  print("handle_response")
   os.remove(TMP_MSG_FILENAME)
   if exit_code ~= 0 then
     vim.notify("An Error Occurred ...", vim.log.levels.ERROR)

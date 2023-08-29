@@ -32,3 +32,7 @@ end, {
 vim.api.nvim_create_user_command("ChatGPTCompleteCode", function(opts)
   require("chatgpt").complete_code(opts)
 end, {})
+
+vim.api.nvim_create_user_command("ChatGPTChangeCode", function()
+  require("chatgpt").change_code()
+end, {range = true})
